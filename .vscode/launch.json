@@ -1,0 +1,66 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "PS: Interactive",
+            "presentation": {
+                "group": "Powershell"
+            },
+            "request": "launch",
+            "type": "PowerShell"
+        },
+        {
+            "cwd": "${file}",
+            "name": "PS: Run",
+            "presentation": {
+                "group": "Powershell"
+            },
+            "request": "launch",
+            "script": "${file}",
+            "type": "PowerShell"
+        },
+        {
+            "args": [
+                "${command:SpecifyScriptArgs}"
+            ],
+            "cwd": "${file}",
+            "name": "PS: Run w/ Args",
+            "presentation": {
+                "group": "Powershell"
+            },
+            "request": "launch",
+            "script": "${file}",
+            "type": "PowerShell"
+        },
+        {
+            "args": [
+                "${command:SpecifyScriptArgs}"
+            ],
+            "name": "PS: Pester",
+            "presentation": {
+                "group": "Powershell"
+            },
+            "request": "launch",
+            "script": "Invoke-Pester",
+            "type": "PowerShell"
+        },
+        {
+            "name": "PS: Attach",
+            "presentation": {
+                "group": "Powershell"
+            },
+            "processId": "${command:PickPSHostProcess}",
+            "request": "attach",
+            "runspaceId": 1,
+            "type": "PowerShell"
+        },
+        {
+            "name": "Attach to PowerShell Functions",
+            "type": "PowerShell",
+            "request": "attach",
+            "customPipeName": "AzureFunctionsPSWorker",
+            "runspaceId": 1,
+            "preLaunchTask": "func: host start"
+        }
+    ]
+}
